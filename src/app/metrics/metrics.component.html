@@ -1,0 +1,11 @@
+<div *ngIf="errorMessage">{{ errorMessage }}</div>
+
+<div *ngIf="!errorMessage">
+  <h2>Metrics</h2>
+  <ul *ngIf="metrics && metrics.length > 0">
+    <li *ngFor="let metric of metrics">
+      <strong>{{ metric.name }}</strong>: {{ metric.value }} {{ metric.unit }} ({{ metric.timestamp | date:'medium' }})
+    </li>
+  </ul>
+  <p *ngIf="!metrics || metrics.length === 0">No metrics found.</p>
+</div>

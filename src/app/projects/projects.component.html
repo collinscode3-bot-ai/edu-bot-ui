@@ -1,0 +1,12 @@
+<div *ngIf="errorMessage">{{ errorMessage }}</div>
+
+<div *ngIf="!errorMessage">
+  <h2>Projects</h2>
+  <ul *ngIf="projects && projects.length > 0">
+    <li *ngFor="let project of projects">
+      <strong>{{ project.name }}</strong>: {{ project.description }}
+      <p>Status: {{ project.status }} | Start Date: {{ project.startDate | date:'shortDate' }} | End Date: {{ project.endDate | date:'shortDate' }}</p>
+    </li>
+  </ul>
+  <p *ngIf="!projects || projects.length === 0">No projects found.</p>
+</div>

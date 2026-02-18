@@ -1,0 +1,12 @@
+<div *ngIf="errorMessage">{{ errorMessage }}</div>
+
+<div *ngIf="!errorMessage">
+  <h2>Agent Tasks</h2>
+  <ul *ngIf="agentTasks && agentTasks.length > 0">
+    <li *ngFor="let task of agentTasks">
+      <strong>{{ task.description }}</strong>
+      <p>Assigned to: {{ task.assignedTo }} | Due: {{ task.dueDate | date:'medium' }} | Status: {{ task.status }} | Priority: {{ task.priority }}</p>
+    </li>
+  </ul>
+  <p *ngIf="!agentTasks || agentTasks.length === 0">No agent tasks found.</p>
+</div>
